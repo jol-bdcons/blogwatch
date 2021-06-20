@@ -86,5 +86,7 @@ The result of the scheduled task for this application is written to the /storage
 To run the tests, run:
 
 ```
-phpunit
+php artisan test
 ```
+
+NOTE: The database is refreshed after the tests are run.
