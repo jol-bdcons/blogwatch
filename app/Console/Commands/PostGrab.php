@@ -44,7 +44,10 @@ class PostGrab extends Command
         $posts = [];
         if($response->successful()) {
             $posts = $response['data'];
-            $adminUser = User::where('name', config('app.admin.admin_name'))->first();
+            $adminUser = User::where([
+                ['name', config('app.admin.admin_name')],
+                ['email', config('app.admin.admin_email')]
+            ])->first();
             if(count($posts) > 0) {
                 $adminUser->posts()->createMany($posts);
             }
