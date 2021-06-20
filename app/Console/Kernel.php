@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('admin:get-posts')->everyFiveMinutes()->appendOutputTo(storage_path('/logs/get_post_task_log.log'));
+        $schedule->command('admin:get-posts')->hourly()->appendOutputTo(storage_path('/logs/get_post_task_log.log'));
     }
 
     /**
